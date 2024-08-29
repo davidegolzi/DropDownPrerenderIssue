@@ -1,0 +1,67 @@
+﻿@page "/dropdownlist-features"
+@rendermode InteractiveAuto
+@using Syncfusion.Blazor
+@using Syncfusion.Blazor.DropDowns
+@using Syncfusion.Blazor.Data
+<PageTitle>Dropdown List</PageTitle>
+<h2>Dropdown List</h2>
+<br/>
+<h1>@selected</h1>
+<div id = "ControlRegion">
+<div class="control-section col-lg-12">
+    <div id='local-data' class="col-lg-6">
+       <h4>Local Data</h4>
+            <SfDropDownList TValue="string" TItem="GameFields" PopupHeight="230px" @bind-Value="selected" Placeholder="Select a game" DataSource="@Games">
+          <DropDownListFieldSettings Text="Text" Value="ID" ></DropDownListFieldSettings>
+       </SfDropDownList>
+    </div>
+</div>
+</div>
+<br/>
+<div>
+  <h3>Selected Features:</h3>
+    <ul class="ulstyle">
+      <li class="list"> Dropdown List Samples - Local Data</li>
+      <li class="list"> Theme - Fluent</li>
+    </ul>
+</div>
+<br/>
+<style>
+    #local-data {
+        width: 350px;
+        margin: 0 auto;
+        padding: 3%;
+    }
+    .ulstyle {
+        margin: 0px;
+        padding-left: 20px;
+        display: inline-block;
+    }
+    .list {
+    float: left;
+    line-height: 20px;
+    margin: 10px;
+    min-width: 300px;
+    }
+</style>
+@code{
+    public class GameFields
+    {
+        public string ID { get; set; }
+        public string Text { get; set; }
+    }
+    public List<GameFields> Games = new List<GameFields>() {
+        new GameFields(){ ID= "Game1", Text= "American Football" },
+        new GameFields(){ ID= "Game2", Text= "Badminton" },
+        new GameFields(){ ID= "Game3", Text= "Basketball" },
+        new GameFields(){ ID= "Game4", Text= "Cricket" },
+        new GameFields(){ ID= "Game5", Text= "Football" },
+        new GameFields(){ ID= "Game6", Text= "Golf" },
+        new GameFields(){ ID= "Game7", Text= "Hockey" },
+        new GameFields(){ ID= "Game8", Text= "Rugby"},
+        new GameFields(){ ID= "Game9", Text= "Snooker" },
+        new GameFields(){ ID= "Game10",Text= "Tennis"}
+        };
+
+    public string selected = "Game1";
+}
